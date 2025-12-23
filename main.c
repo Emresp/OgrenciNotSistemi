@@ -26,6 +26,29 @@ int main(void)
 
     Sinif = (Ogrenci*)malloc(kisisayisi * sizeof(Ogrenci));
 
+    FILE* dosya;
+
+    dosya = fopen("Sinif.txt","r");
+
+    if (dosya != NULL)
+    {
+        while(fscanf(dosya, "%s %d %d", Sinif[sayac].name, &Sinif[sayac].vize,&Sinif[sayac].final) != EOF)
+        {
+            Sinif[sayac].ortalama=(Sinif[sayac].vize*0.4)+(Sinif[sayac].final*0.6);
+            sayac++;
+
+
+            if (sayac >= kisisayisi)
+            {
+                printf("Yer kalmadi");
+                break;
+            }
+        }
+        fclose(dosya);
+        printf("%d eski ogrenci yuklendi\n",sayac);
+    }
+
+
     //Programın hep açık kalması için sonsuz döngü kulandık
     while(1)
     {
@@ -76,9 +99,14 @@ int main(void)
 
         else if (secim==0 )
         {
-            printf("Programdan Cikildi");
+            dosya = fopen("Sinif.txt","w");
+            for(int i=0;i<sayac;i++)
+            {
+                fprintf(dosya, "%s %d %d\n",Sinif[i].name,Sinif[i].vize,Sinif[i].final);
+            }
+            fclose(dosya);
+            printf("Deftere kaydedildi");
             break;
-            //çıkmak için break komutuna dikkat ettik
         }
 
         else printf("Lutfen Gecerli Bir Secim Yapiniz\n");
