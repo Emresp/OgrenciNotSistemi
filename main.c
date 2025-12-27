@@ -66,9 +66,10 @@ int main(void)
     while(1)
     {
         printf("\n1-Tum liste icin\n");
-        printf("2-Ogrenci Ekle\n");
+        printf("2-Ogrenci Eklemek için\n");
         printf("3-Listeyi Sifirlamak icin\n");
         printf("4-Öğrenci Bul\n");
+        printf("5-Ortalamaya göre sıralamak için\n");
         printf("0-Cikis icin\n");
         printf("Secim:");
         scanf("%d",&secim);
@@ -212,6 +213,26 @@ int main(void)
                 printf("Girmiş olduğunuz öğrenci kriterlerine göre hiç bi öğrenci bulunamadı.");
             }
 
+        }
+
+        // Ortalmaya göre sıralama
+        else if (secim==5)
+        {
+            int temp;
+            printf("------ORTALAMA GÖRE SIRALAMA------");
+
+            for(int i=0;i<sayac;i++)
+            {
+                for(int j=i+1;j<sayac;j++)
+                {
+                    if (Sinif[i].ortalama<Sinif[j].ortalama)
+                    {
+                        temp = Sinif[i].ortalama;
+                        Sinif[i].ortalama= Sinif[j].ortalama;
+                        Sinif[j].ortalama = temp;
+                    }
+                }
+            }
         }
 
         else if (secim==0 )
