@@ -1,7 +1,9 @@
 cmake_minimum_required(VERSION 4.0)
-project(ogrenci_snav C)
+project(EduScore C)
 
 
 set(CMAKE_C_STANDARD 23)
 
-add_executable(ogrenci_snav main.c)
+add_executable(EduScore main.c
+        student.h
+        student.c)
