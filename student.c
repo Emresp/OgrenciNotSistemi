@@ -11,8 +11,8 @@
 int Menu()
 {
     int secim;
-    printf("-------------------------------------\n");
-    printf("-------------EduScore--------------\n");
+    printf("\n-------------------------------------\n");
+    printf("-------------EduScore----------------\n");
     printf("-------------------------------------\n");
     printf("-------------HOŞGELDİNİZ-------------\n");
     printf("-------------------------------------\n");
@@ -20,6 +20,7 @@ int Menu()
     printf("2-Ogrenci Eklemek için\n");
     printf("3-Öğrenci Bul\n");
     printf("4-Listeyi Sifirlamak icin\n");
+    printf("5-Başarı Analizi (Simülasyon)\n");
     printf("0-Cikis icin\n");
     printf("Secim:");
     scanf("%d",&secim);
@@ -75,13 +76,13 @@ void ogrencilistele(Ogrenci* Sinif, int sayac)
     if (secim==1)
     {
         Ogrenci temp;;
-        printf("------OKUL NUMARASINA GÖRE SIRALAMA------");
+        printf("------OKUL NUMARASINA GÖRE SIRALAMA------\n");
 
         for(int i=0;i<sayac;i++)
         {
             for(int j=i+1;j<sayac;j++)
             {
-                if (Sinif[i].id>Sinif[j].id)
+                if (Sinif[i].id<Sinif[j].id)
                 {
                     //Yer değiştir
                     temp = Sinif[i];
@@ -102,7 +103,7 @@ void ogrencilistele(Ogrenci* Sinif, int sayac)
     else if (secim==2)
     {
         Ogrenci temp;
-        printf("------ORTALAMAYA GÖRE SIRALAMA------");
+        printf("------ORTALAMAYA GÖRE SIRALAMA------\n");
 
         for(int i=0;i<sayac;i++)
         {
@@ -162,7 +163,7 @@ Ogrenci* ogrenciekle(Ogrenci* Sinif,int *sayac, int *kapasite)
         //Okunabilirlik kolay olsun diye ortalmayıda atadık
         Sinif[*sayac].ortalama=(float)(Sinif[*sayac].vize*0.4)+(Sinif[*sayac].final*0.6);
 
-        printf("%lld numaralı %s %s adli ogrencinin ortalamasi:%.2f olarak basarili sekilde kayit edilmistir\n",Sinif[*sayac].id,Sinif[*sayac].name,Sinif[*sayac].surname,Sinif[*sayac].ortalama);
+        printf("%lld numaralı %s %s adli ogrencinin ortalamasi:%.2f olarak basarili sekilde kayit edilmistir\n\n",Sinif[*sayac].id,Sinif[*sayac].name,Sinif[*sayac].surname,Sinif[*sayac].ortalama);
 
         *sayac=*sayac+1;
 
@@ -280,4 +281,61 @@ void listekaydet(Ogrenci* Sinif,int sayac)
     }
     fclose(dosya);
     printf("Deftere kaydedildi");
+}
+
+void basarianalizi(Ogrenci* Sinif,int sayac)
+{
+    int tabanort;
+    Ogrenci temp;
+    printf("\nBaşarı Analizi Simulasyonuna Hoşgeldiniz\n");
+    printf("Girmiş Olduğunuz Taban Ortalamasına Göre Öğrencilerin Geçme Kalma Durumunu Söyler\n");
+    printf("Lütfen Bir Taban Ortalaması Giriniz:");
+    scanf("%d",&tabanort);
+
+    printf("\n");
+
+    // Her Şeyden önce listenin numara sırasında gözükmesi için sıralama yaptırdım
+    for(int i=0;i<sayac;i++)
+    {
+        for(int j=i+1;j<sayac;j++)
+        {
+            if (Sinif[i].id<Sinif[j].id)
+            {
+                //Yer değiştir
+                temp = Sinif[i];
+
+                Sinif[i] = Sinif[j];
+
+                Sinif[j] = temp;
+            }
+        }
+    }
+
+    for (int i = 0; i < sayac; i++)
+    {
+        if (Sinif[i].ortalama>tabanort)
+        {
+            printf("%d-) %lld numaralı %s %s adli ogrencinin ortalamasi:%.2f ",i+1,Sinif[i].id,Sinif[i].name,Sinif[i].surname,Sinif[i].ortalama);
+            RenkliYazdir("GEÇTİ", 10);
+            printf("\n");
+
+        }
+
+        else if (Sinif[i].ortalama<tabanort)
+        {
+            printf("%d-) %lld numaralı %s %s adli ogrencinin ortalamasi:%.2f ",i+1,Sinif[i].id,Sinif[i].name,Sinif[i].surname,Sinif[i].ortalama);
+            RenkliYazdir("KALDI", 12);
+            printf("\n");
+        }
+    }
+
+
+}
+
+//EK HİZMETLER RENK
+void RenkliYazdir(char* metin, int renkKodu) {
+    HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
+    SetConsoleTextAttribute(hConsole, renkKodu); // Rengi aç
+    printf("%s", metin);
+    SetConsoleTextAttribute(hConsole, 7); // Rengi sıfırla (Beyaz yap)
 }

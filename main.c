@@ -35,6 +35,8 @@ int main(void)
 
         else if (secim==4) {sayac=listesifirla(sayac);}
 
+        else if (secim==5){basarianalizi(Sinif,sayac);}
+
         else if (secim==0 ) {listekaydet(Sinif,sayac); break;}
 
         else

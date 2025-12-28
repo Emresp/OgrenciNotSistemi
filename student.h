@@ -24,6 +24,10 @@ Ogrenci* ogrenciekle(Ogrenci* Sinif,int *sayac, int *kapasite);
 void ogrenciara(Ogrenci* Sinif, int sayac);
 int listesifirla(int anliksayac);
 void listekaydet(Ogrenci* Sinif,int sayac);
+void basarianalizi(Ogrenci* Sinif,int sayac);
+
+//EK HİZMETLER RENKLİ YAZI
+void RenkliYazdir(char* metin, int renkKodu);
 
 
 
