@@ -4,7 +4,7 @@
 ![Status](https://img.shields.io/badge/Status-In%20Development-orange)
 
 
-# EduScore - Öğrenci Yönetim Sistemi (v2.5)
+# EduScore - Öğrenci Yönetim Sistemi (v2.6)
 
 C programlama dili kullanılarak geliştirilmiş; dinamik bellek yönetimi, dosya işlemleri ve gelişmiş arama algoritmaları içeren kapsamlı bir öğrenci takip otomasyonu.
 
