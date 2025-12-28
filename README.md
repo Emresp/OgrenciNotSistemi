@@ -18,6 +18,10 @@ Bu proje v2.5 sürümüyle birlikte **Clean Code** prensiplerine uygun hale geti
 - **Kesin Arama (ID):** Okul numarası ile nokta atışı öğrenci bulma özelliği.
 - **Detaylı Sıralama:** Not ortalamasına veya numaraya göre başarı sıralaması.
 - **Veri Bütünlüğü:** Struct yapıları sayesinde sıralama sırasında veri kayması yaşanmaz.
+- **Akademik Başarı Simülasyonu:** Kullanıcının belirlediği not ortalaması barajına göre sınıfın başarı durumunu anlık olarak analiz eder.
+- **Görsel Geri Bildirim (Colorized Output):** Analiz sonuçlarında geçen öğrenciler **YEŞİL**, kalanlar **KIRMIZI** renk ile vurgulanarak görsel algı kolaylaştırılır.
+- **🇹🇷 Türkçe Karakter Desteği:** UTF-8 kodlaması sayesinde `ğ, ş, ı, ö, ü, ç` gibi karakterler konsol ekranında bozulmadan görüntülenir.
+- **Modüler Menü Tasarımı:** Kullanıcı dostu arayüz ile ekleme, listeleme ve analiz işlemleri kolayca yönetilir.
 
   
 ## Kullanılan Teknolojiler
