@@ -7,3 +7,4 @@ set(CMAKE_C_STANDARD 23)
 add_executable(EduScore main.c
         student.h
         student.c)
+# v2.6 Surumune guncellendi
