@@ -40,4 +40,4 @@ Bu proje v2.5 sürümüyle birlikte **Clean Code** prensiplerine uygun hale geti
   Tek bir ekran görüntüsü ile programın çalışan bir çok özzeliğine atıfta bulunmuş oluyoruz aslında. Bu ekran görütüsünde hem kullanıcıların bilgisini dosyalardan çekip kullanıcya okunaklı bir şekilde gösteriyoruz hemde ortalmasına göre yorum yapıyoruz. Tüm bunlar olurkende öğrencinin okul numarasına göre sıralama yapıp ekranda gösteriryoruz 
 ## Yazar
 
-  [![GitHub](https://img.shields.io/badge/GitHub-Emresp-181717?style=for-the-badge&logo=github)](https://github.com/Emresp) [![LinkedIn](https://img.shields.io/badge/linkedin-%230077B5.svg?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/emre-ayözcan-571ba3387)
+  [![GitHub](https://img.shields.io/badge/GitHub-Emresp-181717?style=for-the-badge&logo=github)](https://github.com/Emresp) 
